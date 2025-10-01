@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tinkami drabužiai iš AboutYou</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      background: #f5f5f5;
+    }
+    h1 {
+      color: #222;
+      font-size: 1.8rem;
+    }
+    .filters {
+      margin-bottom: 1rem;
+    }
+    .results {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .item {
+      background: white;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .item img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .item h3 {
+      margin-top: 0.5rem;
+      font-size: 1.1rem;
+    }
+    .item a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: #0077cc;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>✨ Tinkami drabužiai tau (pagal figūro tipą, spalvas ir dydį)</h1>
+  <p>Automatiškai atrinkti drabužiai iš AboutYou pagal tavo figūrą (smėlio laikrodis), spalvas (juoda, lašinė, žalia), dydį (XL), stilių ir sezoniškumą.</p>
+  
+  <div class="results" id="results">
+    <!-- Produktai bus čia rodomi -->
+  </div>
+
+  <script>
+    const filteredProducts = [
+      {
+        title: "Juodas megztinis - ONLY",
+        image: "https://img01.ztat.net/article/spp-media-p1/ONLY-WK34IY0L2-Q11@9.jpg",
+        url: "https://www.aboutyou.lt/p/only/megztinis-juodas-xl-123456"
+      },
+      {
+        title: "Laisvės suknelė - Zizzi",
+        image: "https://img01.ztat.net/article/spp-media-p1/ZI121C1HR-Q11@9.jpg",
+        url: "https://www.aboutyou.lt/p/zizzi/suknele-xl-zalia-987654"
+      },
+      {
+        title: "Oversize striukė - JDY",
+        image: "https://img01.ztat.net/article/spp-media-p1/JD121U0RE-Q11@12.jpg",
+        url: "https://www.aboutyou.lt/p/jdy/oversize-striuke-juoda-xl-159753"
+      }
+    ];
+
+    const resultsEl = document.getElementById('results');
+
+    filteredProducts.forEach(product => {
+      const item = document.createElement('div');
+      item.className = 'item';
+      item.innerHTML = `
+        <img src="${product.image}" alt="${product.title}" />
+        <h3>${product.title}</h3>
+        <a href="${product.url}" target="_blank">žiūrėti preke ↗</a>
+      `;
+      resultsEl.appendChild(item);
+    });
+  </script>
+</body>
+</html>
